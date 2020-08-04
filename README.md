@@ -56,7 +56,7 @@ I was still unable to improve the predictions with the solutions tried so I gave
 
 ## Results
 
-The results of the images, which marks the centre of the baseball is shown in `results/`. From frame 3 to frame 15, the position and speed of the ball are shown below.
+The results of the images with marked positions of the baseball is shown in `results/`. From frame 3 to frame 15, the position and speed of the ball are shown below.
 
 | Frame number | Position of ball  |  Speed (mm/s) | 
 | ------------ | ------------- | ------------  |
