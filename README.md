@@ -6,14 +6,17 @@ This is a `OpenCV` implementation of detecting and tracking a baseball across mu
 
 ## Approach
 
-To find the **position** of the ball in differnet frames, I followed a few steps:
+### Position of balls
+
+To find the position of the ball in differnet frames, I followed a few steps:
 
 1. Background Subtraction :  Subtract the previous frame from the current frame to get the moving pixels in the current frame. In our case, objects in motion would mainly be the body of the hitter, the bat and the baseball.
 2. Hough Circle : Once, we have the areas of interest, then we perfom `HoughCircles` on these regions to look for circular shaped objects (baseball in our case).
 3. Filter : In some cases, `HoughCircles` outputs false positives for a baseball at the bottom of the bat, which is also circular. This can be filtered out in a number of ways- by using greyscale intensities or positions. In our case, we use positions, i.e., we introduced a variable `leftmost`, which represents the leftmost cirle and assumes that the ball is always travelling in the left direction and any detection to the right of this variable is ignored. This gives the correct location for the baseball.
 
-To find the **velocity**,
-Calculate velocity by dividing the Euclidean Distance between points in subsequent frames with the time elpased between frames.
+### Velocity of balls
+
+I calculate velocity by dividing the Euclidean Distance between points in subsequent frames with the time elpased between frames.
 
 Euclidean distance is calculated using 
 
@@ -34,14 +37,16 @@ Finally, velocity is calculated
 
 ## Alternatives tried
 
-1. **Sparse Optical Flow** 
+**Sparse Optical Flow** 
 
 I tried to use Sparse Optical flow to track movement of baseball. I performed the following steps:
 
-Used HoughCircles on the first frame to get a few circular objects (baseball being one of them)
-For the next frame, I used cv2.calcOpticalFlowPyrLK to get the optical flow of the selected circular object and only kept the ones with new points(gives the baseball location).
-Repeated step 2 for all the subsequent frames
-Problem : After frame 9, it loses track of the baseball and gives wrong predictions.
-Reason : After frame 9, the motion gets bigger from camera perspective, i.e., the distance between baseball in subsequent frames increases.
-Solutions tried : Choose pyramid structures with Lucas-Kanade and use larger window size.
+1. Used `HoughCircles` on the first frame to get a few circular objects (baseball being one of them)
+2. For the next frame, I used `cv2.calcOpticalFlowPyrLK()` to get the optical flow of the selected circular object and only kept the ones with new points(gives the baseball location).
+3. Repeated step 2 for all the subsequent frames
+
+**Problem** : After frame 9, it loses track of the baseball and gives wrong predictions. <br>
+**Reason** : After frame 9, the motion gets bigger from camera perspective, i.e., the distance between baseball in subsequent frames increases.<br>
+**Solutions tried** : Choose pyramid structures with Lucas-Kanade and use larger window size.<br>
+
 I was still unable to improve the predictions with the solutions tried so I gave up on this approach.
