@@ -6,6 +6,8 @@ This is an `OpenCV` implementation of detecting and tracking a baseball across m
 - Pixel Size : 0.0048mm
 - Frame per second (fps) : 240
 
+The code can be found in `main.ipynb`.
+
 ## Approach
 
 ### Position of balls
