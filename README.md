@@ -2,7 +2,9 @@
 
 ## Description
 
-This is an `OpenCV` implementation of detecting and tracking a baseball across multiple frames. We're given images of 15 consecutive frames in the `images/` folder and we have to find the position and velocity of baseball programatically without using Machine Learning. 
+This is an `OpenCV` implementation of detecting and tracking a baseball across multiple frames. We're given images of 15 consecutive frames of a video in the `images/` folder and we have to find the position and velocity of baseball programatically without using Machine Learning. Some of the useful information is given below-
+- Pixel Size : 0.0048mm
+- Frame per second (fps) : 240
 
 ## Approach
 
@@ -50,3 +52,25 @@ I tried to use Sparse Optical flow to track movement of baseball. I performed th
 **Solutions tried** : Choose pyramid structures with Lucas-Kanade and use larger window size.<br>
 
 I was still unable to improve the predictions with the solutions tried so I gave up on this approach.
+
+
+## Results
+
+The results of the images, which marks the centre of the baseball is shown in `results/`. From frame 3 to frame 15, the position and speed of the ball are shown below.
+
+| Frame number | Position of ball  |  Speed (mm/s) | 
+| ------------ | ------------- | ------------  |
+| 3            |     (538, 803)  | 15.02|      
+| 4            |  (510, 799)    |  32.583    | 
+| 5            |  (481, 792)    |  34.367    | 
+| 6            |  (450, 784)    |   36.882   | 
+| 7            |  (417, 778)    |  38.639    | 
+| 8            |  (379, 769)    |  44.987   | 
+| 9            |  (341, 761)    |  44.736    | 
+| 10            |  (296, 747)    |  54.291   | 
+| 11           |  (253, 742)    |  49.87    | 
+| 12           |  (202, 732)    |  59.871    | 
+| 13           |  (149, 723)    |  61.93    | 
+| 14           |  (93, 707)    |  67.093    | 
+| 15           |  (30, 695)    |  73.881   | 
+
