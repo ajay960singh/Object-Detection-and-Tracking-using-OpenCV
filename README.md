@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a `OpenCV` implementation of detecting and tracking a baseball across multiple frames. We're given images of 15 consecutive frames in the `images/` folder and we have to find the position and velocity of baseball programatically without using Machine Learning. 
+This is an `OpenCV` implementation of detecting and tracking a baseball across multiple frames. We're given images of 15 consecutive frames in the `images/` folder and we have to find the position and velocity of baseball programatically without using Machine Learning. 
 
 ## Approach
 
